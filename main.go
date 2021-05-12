@@ -1,17 +1,15 @@
 package main
 
 import (
-	"net/http"
+	"github.com/Herwindams24/project-2-Herwindams24/db"
 
-	"github.com/labstack/echo"
+	"github.com/Herwindams24/project-2-Herwindams24/routes"
 )
 
 func main() {
-	e := echo.New()
+	db.Init()
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, this is echo!")
-	})
+	e := routes.Init()
 
 	e.Logger.Fatal(e.Start(":1234"))
 }
