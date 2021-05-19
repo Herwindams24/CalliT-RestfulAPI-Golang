@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/Herwindams24/project-2-Herwindams24/db"
+	"project-2-Herwindams24/db"
 
-	"github.com/Herwindams24/project-2-Herwindams24/routes"
+	"project-2-Herwindams24/routes"
 )
 
 func main() {
@@ -13,3 +13,4 @@ func main() {
 
 	e.Logger.Fatal(e.Start(":1234"))
 }
+
