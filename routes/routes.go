@@ -3,8 +3,9 @@ package routes
 import (
 	"net/http"
 
-	"github.com/labstack/echo"
 	"project-2-Herwindams24/controllers"
+
+	"github.com/labstack/echo"
 )
 
 func Init() *echo.Echo {
@@ -15,6 +16,8 @@ func Init() *echo.Echo {
 	})
 
 	e.GET("/daftarInstansi", controllers.FetchAllDaftarInstansi)
+	e.POST("/daftarInstansi", controllers.StoreDaftarInstansi)
+	e.PUT("/daftarInstansi", controllers.UpdateDaftarInstansi)
 
 	return e
 }
