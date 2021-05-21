@@ -3,7 +3,7 @@ package routes
 import (
 	"net/http"
 
-	"github.com/labstack/echo/middleware"
+	"project-2-Herwindams24/middlewares"
 
 	"project-2-Herwindams24/controllers"
 
@@ -17,7 +17,7 @@ func Init() *echo.Echo {
 		return c.String(http.StatusOK, "Hello, this is echo!")
 	})
 
-	e.GET("/daftarInstansi", controllers.FetchAllDaftarInstansi, middleware.IsAuthenticated)
+	e.GET("/daftarInstansi", controllers.FetchAllDaftarInstansi, middleware.IsAuth)
 	e.POST("/daftarInstansi", controllers.StoreDaftarInstansi)
 	e.PUT("/daftarInstansi", controllers.UpdateDaftarInstansi)
 	e.DELETE("/daftarInstansi", controllers.DeleteDaftarInstansi)
