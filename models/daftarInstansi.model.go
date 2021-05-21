@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"project-2-Herwindams24/db"
+
+	"github.com/go-playground/validator/v10"
 )
 
 type DaftarInstansi struct {
@@ -49,6 +51,19 @@ func StoreDaftarInstansi(namaInstansi string, Kota string, telfon string) (Respo
 
 	var res Response
 
+	v := validator.New()
+
+	instansi := DaftarInstansi{
+		namaInstansi: namaInstansi,
+		Kota: Kota,
+		Telfon: telfon,
+	}
+
+	err := v.Struct(instansi)
+	if err != nil {
+		return res, err
+	}
+
 	con := db.CreateCon()
 
 	sqlStatement := "INSERT daftarInstansi (namaInstansi, kota, telfon) VALUES (?, ?, ?)"
@@ -85,7 +100,6 @@ func UpdateDaftarInstansi(id int, namaInstansi string, Kota string, telfon strin
 
 	sqlStatement := "UPDATE daftarInstansi SET namaInstansi = ?, Kota = ?, telfon = ? WHERE id = ?"
 
-
 	stmt, err := con.Prepare(sqlStatement)
 	if err != nil {
 		return res, err
@@ -104,7 +118,7 @@ func UpdateDaftarInstansi(id int, namaInstansi string, Kota string, telfon strin
 	res.Status = http.StatusOK
 	res.Message = "Succes"
 	res.Data = map[string]int64{
-		"rows_affected" : rowsAffected,
+		"rows_affected": rowsAffected,
 	}
 
 	return res, nil

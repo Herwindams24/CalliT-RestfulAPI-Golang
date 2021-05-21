@@ -24,7 +24,7 @@ func StoreDaftarInstansi(c echo.Context) error {
 
 	result, err := models.StoreDaftarInstansi(namaInstansi, Kota, telfon)
 	if err != nil {
-		return c.JSON(http.StatusInternalServerError, err.Error())
+		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 
 	}
 
@@ -32,7 +32,7 @@ func StoreDaftarInstansi(c echo.Context) error {
 
 }
 
-func UpdateDaftarInstansi(c echo.Context) error{
+func UpdateDaftarInstansi(c echo.Context) error {
 	id := c.FormValue("id")
 	namaInstansi := c.FormValue("namaInstansi")
 	Kota := c.FormValue("Kota")
