@@ -1,13 +1,17 @@
 package routes
 
 import (
+	"github.com/swaggo/echo-swagger"
+
+	_ "github.com/swaggo/echo-swagger/example/docs"
+
 	"net/http"
 
 	middleware "project-2-Herwindams24/middlewares"
 
 	"project-2-Herwindams24/controllers"
 
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 func Init() *echo.Echo {
@@ -27,6 +31,8 @@ func Init() *echo.Echo {
 
 	e.GET("/test-struct-validation", controllers.TestStructValidation)
 	e.GET("/test-variable-validation", controllers.TestVariableValidation)
+
+	e.GET("/documentation/*", echoSwagger.WrapHandler)
 
 	return e
 }

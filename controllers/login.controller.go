@@ -8,7 +8,7 @@ import (
 	"project-2-Herwindams24/models"
 	"project-2-Herwindams24/helpers"
 	
-	"github.com/labstack/echo"
+	"github.com/labstack/echo/v4"
 )
 
 func CheckLogin(c echo.Context) error{
