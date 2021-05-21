@@ -2,6 +2,14 @@
 
 
 [[projects]]
+  digest = "1:76dc72490af7174349349838f2fe118996381b31ea83243812a97e5a0fd5ed55"
+  name = "github.com/dgrijalva/jwt-go"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
+
+[[projects]]
   digest = "1:e3b25b60c5598d88c45b25d85a76816d0a81fc3fd46c00791136614c1183fc0b"
   name = "github.com/go-sql-driver/mysql"
   packages = ["."]
@@ -70,11 +78,13 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:699d068af7aaa15f3e0282632500301396f9a4b8181b12a1643aa49c0d78a7bc"
+  digest = "1:ddd7c609b2ce890df292ead9ebfc2bbacc74ef1d518e59371e7b76e13468596e"
   name = "golang.org/x/crypto"
   packages = [
     "acme",
     "acme/autocert",
+    "bcrypt",
+    "blowfish",
   ]
   pruneopts = "UT"
   revision = "38f3c27a63bf8d9928ce230b01cab346d1756e88"
@@ -127,9 +137,11 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/dgrijalva/jwt-go",
     "github.com/go-sql-driver/mysql",
     "github.com/labstack/echo",
     "github.com/tkanos/gonfig",
+    "golang.org/x/crypto/bcrypt",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1

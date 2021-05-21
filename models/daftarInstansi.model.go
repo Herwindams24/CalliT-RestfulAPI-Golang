@@ -109,3 +109,34 @@ func UpdateDaftarInstansi(id int, namaInstansi string, Kota string, telfon strin
 
 	return res, nil
 }
+
+func DeleteDaftarInstansi(id int) (Response, error) {
+	var res Response
+
+	con := db.CreateCon()
+
+	sqlStatement := "DELETE FROM daftarInstansi WHERE id = ?"
+
+	stmt, err := con.Prepare(sqlStatement)
+	if err != nil {
+		return res, err
+	}
+
+	result, err := stmt.Exec(id)
+	if err != nil {
+		return res, err
+	}
+
+	rowsAffected, err := result.RowsAffected()
+	if err != nil {
+		return res, err
+	}
+
+	res.Status = http.StatusOK
+	res.Message = "Success"
+	res.Data = map[string]int64{
+		"rows_affected": rowsAffected,
+	}
+
+	return res, nil
+}
