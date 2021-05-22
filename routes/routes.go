@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/swaggo/echo-swagger"
+	echoSwagger "github.com/swaggo/echo-swagger"
 
 	_ "github.com/swaggo/echo-swagger/example/docs"
 
@@ -21,7 +21,7 @@ func Init() *echo.Echo {
 		return c.String(http.StatusOK, "Hello, this is echo!")
 	})
 
-	e.GET("/daftarInstansi", controllers.FetchAllDaftarInstansi, middleware.IsAuth)
+	e.GET("/daftarInstansi", controllers.FetchAllDaftarInstansi)
 	e.POST("/daftarInstansi", controllers.StoreDaftarInstansi, middleware.IsAuth)
 	e.PUT("/daftarInstansi", controllers.UpdateDaftarInstansi, middleware.IsAuth)
 	e.DELETE("/daftarInstansi", controllers.DeleteDaftarInstansi, middleware.IsAuth)
