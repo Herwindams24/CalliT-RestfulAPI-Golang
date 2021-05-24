@@ -1,4 +1,4 @@
-# RESTFUL API GOLANG KONTAK PANGGILAN DARURAT RUMAH SAKIT
+# RestFul API GO Kontak Panggilan Darurat Rumah Sakit
 
 ## Daftar Isi
 
@@ -8,8 +8,8 @@
 
 - [Dokumentasi](#Documentation)
     - [HTTP Requests](#HTTP-Requests)
-    - [HTTP Responses](#HTTP Responses)
-    - [HTTP Response Code](#HTTP Response Code)
+    - [HTTP Responses](#HTTP-Responses)
+    - [HTTP Responses Code](#HTTP-Responses-Code)
     - [GET](#GET)
     - [POST](#POST)
     - [PUT](#PUT)
@@ -20,4 +20,30 @@
 - [Contoh penggunaan melalui Postman](#Tutorial-Postman)
 
 
+---
+## Pra-kata
+---
+
+
+<br>
+
+
+## Clone project ini
+---
+
+<br>
+
+## Documentation
+---
+
+
+<br>
+
+## Authorization-&-Authentication
+---
+
+<br>
+
+
+## Tutorial Postman
 ---
