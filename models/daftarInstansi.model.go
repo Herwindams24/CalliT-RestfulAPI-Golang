@@ -10,7 +10,7 @@ import (
 
 type DaftarInstansi struct {
 	Id           int    `json:"id"`
-	namaInstansi string `json:"namaInstansi" validate:"required"`
+	NamaInstansi string `json:"namaInstansi" validate:"required"`
 	Kota         string `json:"kota" validate:"required"`
 	Telfon       string `json:"telfon" validate:"required"`
 }
@@ -32,7 +32,7 @@ func FetchAllDaftarInstansi() (Response, error) {
 	}
 
 	for rows.Next() {
-		err = rows.Scan(&obj.Id, &obj.namaInstansi, &obj.Kota, &obj.Telfon)
+		err = rows.Scan(&obj.Id, &obj.NamaInstansi, &obj.Kota, &obj.Telfon)
 		if err != nil {
 			return res, err
 		}
@@ -54,9 +54,9 @@ func StoreDaftarInstansi(namaInstansi string, Kota string, telfon string) (Respo
 	v := validator.New()
 
 	instansi := DaftarInstansi{
-		namaInstansi: namaInstansi,
-		Kota: Kota,
-		Telfon: telfon,
+		NamaInstansi: namaInstansi,
+		Kota:         Kota,
+		Telfon:       telfon,
 	}
 
 	err := v.Struct(instansi)

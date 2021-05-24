@@ -10,8 +10,8 @@ var doc = `{
     "info": {
         "title": "Panggilan Darurat Rumah Sakit API",
     },
-    "host": "localhost:1234",
-    "basePath": "",
+    "host": "callit.lintasin.me",
+    "basePath": "/",
     "securityDefinitions": {        
         "bearerAuth": {
             "type": "apiKey",
@@ -141,6 +141,13 @@ var doc = `{
                         "type": "string",
                         "description": "telfon",
                         "name": "telfon",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
                         "in": "query",
                         "required": true
                     }
